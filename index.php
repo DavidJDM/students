@@ -9,8 +9,8 @@ session_start();
 //Create an instance of the Base class
 $f3 = Base::instance();
 
-//Debugging
-require_once '/home/tostrand/public_html/debug.php';
+////Debugging
+//require_once '/home/yvainilo/public_html/debug.php';
 
 //Connect to the database
 $db = new Database();
@@ -71,11 +71,16 @@ $f3->route('GET /rosterx', function($f3, $params) {
 });
 
 //Define a route to view a student summary
-$f3->route('GET /summary', function() {
+$f3->route('GET /summary/@sid',
+    function($f3, $params) {
 
-    //load a template
-    $template = new Template();
-    echo $template->render('views/view-student.html');
+        $sid = $params['sid'];
+//        $student = getStudent($sid);
+//        $f3->set('student', $student);
+
+        //load a template
+        $template = new Template();
+        echo $template->render('views/view-student.html');
 });
 
 //Define a route to add a student
