@@ -123,7 +123,7 @@ $f3->route('GET|POST /add', function($f3) {
                 $gpa, $advisor);
             $_SESSION['student'] = $student;
 
-            $f3->reroute('/summary');
+            $f3->reroute('/summary/sid');
         }
     }
 
