@@ -1,0 +1,19 @@
+{
+  "name": "dkovalev/328/student",
+  "authors": [
+    {
+      "name": "David Kovalevich",
+      "email": "dkovalevich@mail.greenriver.edu"
+    },
+    {
+      "name": "Yafim Vainilovich",
+      "email": "yvainilovich@mail.greenriver.edu"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  },
+  "autoload": {
+    "classmap": ["classes/", "model/"]
+  }
+}
