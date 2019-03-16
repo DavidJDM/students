@@ -1,6 +1,6 @@
 <?php
 
-require("/home/tostrand/config.php");
+require("/home/dkovalev/config.php");
 
 class Database
 {
@@ -104,5 +104,29 @@ class Database
 
         //5. return the result
         return $success;
+    }
+
+    function getStudent($sid)
+    {
+        //1. define the query
+        $sql = "SELECT * FROM `student` WHERE sid = :sid";
+
+        //2. prepare the statement
+        $statement = $this->dbh->prepare($sql);
+
+        //3. bind parameters
+        $statement->bindParam(':sid', $sid, PDO::PARAM_STR);
+
+        //4. execute the statement
+        $statement->execute();
+
+        //5. return the result
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        $student = new Student($result[0]['sid'], $result[0]['last'], $result[0]['first'], $result[0]['birthdate'], $result[0]['gpa'], $result[0]['advisor']);
+
+        //print_r($result);
+//        print_r($student);
+        return $student;
     }
 }

@@ -73,10 +73,11 @@ $f3->route('GET /rosterx', function($f3, $params) {
 //Define a route to view a student summary
 $f3->route('GET /summary/@sid',
     function($f3, $params) {
+        global $db;
 
         $sid = $params['sid'];
-//        $student = getStudent($sid);
-//        $f3->set('student', $student);
+        $student = $db->getStudent($sid);
+        $f3->set('student', $student);
 
         //load a template
         $template = new Template();
