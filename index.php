@@ -78,6 +78,10 @@ $f3->route('GET /summary/@sid',
         $sid = $params['sid'];
         $student = $db->getStudent($sid);
         $f3->set('student', $student);
+        $f3->set('sid', $student->getSid());
+        $f3->set('last', $student->getLast());
+        $f3->set('first', $student->getFirst());
+        $f3->set('gpa', $student->getGpa());
 
         //load a template
         $template = new Template();
